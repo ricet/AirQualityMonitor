@@ -19,9 +19,15 @@ CO_HEAT_CTL = "P9_26"
 GPIO.setup(CO_HEAT_CTL, GPIO.OUT)
 GPIO.output(CO_HEAT_CTL, 0)
 
+BTN_C = "P9_15"
+GPIO.setup(BTN_C, GPIO.IN)
+
+USR3 = "USR3"
+GPIO.setup(USR3, GPIO.OUT)
+GPIO.output(USR3, 0)
 
 while True:
-    GPIO.output(BEEP, 1)
-    time.sleep(0.05)
-    GPIO.output(BEEP, 0)
-    time.sleep(0.9)
+    if GPIO.input(BTN_C):
+        GPIO.output(BEEP, 0)
+    else:
+        GPIO.output(BEEP, 1)
