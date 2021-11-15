@@ -1,0 +1,11 @@
+[Unit]
+Description=Air Quality Monitoring Service
+
+[Service]
+Restart=on-failure
+RestartSec=5s
+WorkingDirectory=/
+ExecStart=/usr/bin/env /home/debian/AirQualityMonitor/runner.py
+
+[Install]
+WantedBy=multi-user.target
