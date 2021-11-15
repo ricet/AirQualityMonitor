@@ -143,7 +143,7 @@ except:
     co_value = -1
     gasThread = threading.Thread(target=gasThread)
     gasThread.start()
-    for tem in range(100):
+    for tem in range(1000000):
         now = datetime.now()
         date_time = now.strftime("%Y-%m-%dT%H:%M:%SZ")
         getCO2()
