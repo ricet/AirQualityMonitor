@@ -13,6 +13,7 @@ import Adafruit_BBIO.GPIO as GPIO
 import Adafruit_BBIO.ADC as ADC
 import signal, sys
 import threading
+import math
 
 
 DB_PATH = "/etc/grafana/airQualityData.db"
@@ -99,17 +100,18 @@ def getParticles():
         print("Unable ro read from sensor, retrying...")
 
 def gasThread():
-    global gas_value
-    global co_value
-    GPIO.output(CO_HEAT_CTL, 0)
-    time.sleep(30)
-    gas_value = ADC.read_raw("P9_37")
-    co_value = ADC.read_raw("P9_39")
-    print("gas: " + str(gas_value))
-    print("co: " + str(co_value))
-    time.sleep(1)
-    GPIO.output(CO_HEAT_CTL, 1)
-    time.sleep(60)
+    while(1):
+        global gas_value
+        global co_value
+        GPIO.output(CO_HEAT_CTL, 0)
+        time.sleep(30)
+        gas_value = 10.938 * math.exp(1.7742*0.00103271484375*ADC.read_raw("P9_37"))
+        co_value = 3.027 * math.exp(1.0698*0.00103271484375*ADC.read_raw("P9_39"))
+        print("gas: " + str(gas_value))
+        print("co: " + str(co_value))
+        time.sleep(1)
+        GPIO.output(CO_HEAT_CTL, 1)
+        time.sleep(60)
 
 try:
     # Create table
