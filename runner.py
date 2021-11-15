@@ -34,7 +34,7 @@ GPIO.output(CO_HEAT_EN, 1)
 
 CO_HEAT_CTL = "P9_26"
 GPIO.setup(CO_HEAT_CTL, GPIO.OUT)
-GPIO.output(CO_HEAT_CTL, 1)
+GPIO.output(CO_HEAT_CTL, 0)
 
 ADC.setup()
 

@@ -19,7 +19,7 @@ GPIO.output(CO_HEAT_EN, 1)
 
 CO_HEAT_CTL = "P9_26"
 GPIO.setup(CO_HEAT_CTL, GPIO.OUT)
-GPIO.output(CO_HEAT_CTL, 0)
+GPIO.output(CO_HEAT_CTL, 1)
 
 def signal_handler(sig, frame):
     GPIO.output(GAS_HEAT_EN, 0)
@@ -31,7 +31,4 @@ signal.signal(signal.SIGINT, signal_handler)
 
 
 while(1):
-    GPIO.output(CO_HEAT_CTL, 1)
-    time.sleep(60)
-    GPIO.output(CO_HEAT_CTL, 0)
-    time.sleep(60)
+    pass
