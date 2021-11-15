@@ -110,7 +110,7 @@ def gasThread():
         print("gas: " + str(gas_value))
         print("co: " + str(co_value))
         time.sleep(1)
-        GPIO.output(CO_HEAT_CTL, 1)
+        GPIO.output(CO_HEAT_CTL, 0)
         time.sleep(60)
 
 try:
@@ -141,8 +141,8 @@ except:
     global co_value
     gas_value = -1
     co_value = -1
-    # gasThread = threading.Thread(target=gasThread)
-    # gasThread.start()
+    gasThread = threading.Thread(target=gasThread)
+    gasThread.start()
     for tem in range(100):
         now = datetime.now()
         date_time = now.strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -193,8 +193,8 @@ except:
         con.commit()
         time.sleep(5)
 
-    # gasThread.stop()
-    # gasThread.join()
+    gasThread.stop()
+    gasThread.join()
     # We can also close the connection if we are done with it.
     # Just be sure any changes have been committed or they will be lost.
     con.close()
