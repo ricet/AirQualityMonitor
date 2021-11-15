@@ -6,5 +6,5 @@ sudo pip3 install adafruit-circuitpython-bme680
 sudo pip3 install adafruit-circuitpython-pm25
 
 # If displayio ever works
-sudo pip3 install adafruit-blinka-displayio
-sudo pip3 install adafruit-circuitpython-displayio-sh1107
+#sudo pip3 install adafruit-blinka-displayio
+#sudo pip3 install adafruit-circuitpython-displayio-sh1107
