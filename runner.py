@@ -11,9 +11,10 @@ import busio
 from adafruit_pm25.i2c import PM25_I2C
 
 
-con = sqlite3.connect("example.db")
-
+DB_PATH = "/etc/grafana/airQualityData.db"
+con = sqlite3.connect(DB_PATH)
 cur = con.cursor()
+
 
 i2c = board.I2C()
 scd = adafruit_scd30.SCD30(i2c)
@@ -72,7 +73,7 @@ def getParticles():
 try:
     # Create table
     cur.execute(
-        """CREATE TABLE stocks
+        """CREATE TABLE airQualityData
                (date text, data_CO2 real, data_temp_bme real, data_gas_bme real, data_hum_bme real, data_pres_bme real, data_alt_bme real, env_pm10 real, env_pm25 real, env_pm100 real, particles_03um real, particles_05um real, particles_10um real, particles_25um real, particles_50um real, particles_100um real)"""
     )
 
@@ -97,8 +98,10 @@ except:
         now = datetime.now()
         date_time = now.strftime("%Y-%m-%dT%H:%M:%SZ")
         getCO2()
+        getBME()
+        getParticles()
         cur.execute(
-            "INSERT INTO stocks VALUES ('"
+            "INSERT INTO airQualityData VALUES ('"
             + date_time
             + "',"
             + str(data_CO2)
@@ -130,7 +133,6 @@ except:
             + str(particles_50um)
             + ","
             + str(particles_100um)
-            + ","
             + ")"
         )
 
