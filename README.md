@@ -1,5 +1,6 @@
 # AirQualityMonitor
-With ever-growing issues plagueing air-quality control in houses and industrial complexes alike, the people inhabiting these buildings shouldn't risk their health by trusting in shaky systems.
+
+With ever-growing issues plaguing air-quality control in houses and industrial complexes alike, the people inhabiting these buildings shouldn't risk their health by trusting in shakey systems.
 
 This project aims to provide a simple and portable solution to help users idenitfy high-risk environment, in terms of the air quality. This product  offers range of sensors that can identify various characteristics of the air around you, such as:
 - CO2
@@ -8,6 +9,7 @@ This project aims to provide a simple and portable solution to help users idenit
 - Particulates (PPM)
 - Temperature
 - Humidity
+- Pressure
 
 This information is stored locally on the device in an SQLite database. The system runs a Grafana webserver - a graphing utility that organizes the aquired data into a time-series graph (data over time). This can be accessed at the device's IP address.
 
