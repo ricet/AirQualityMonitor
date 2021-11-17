@@ -6,7 +6,7 @@ This project aims to provide a simple and portable solution to help users idenit
 - CO2
 - Methane
 - Carbone Monoxide
-- Particulates (PPM)
+- Particulates
 - Temperature
 - Humidity
 - Pressure
