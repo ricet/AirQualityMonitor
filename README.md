@@ -1,6 +1,6 @@
 # AirQualityMonitor
 
-With ever-growing issues plaguing air-quality control in houses and industrial complexes alike, the people inhabiting these buildings shouldn't risk their health by trusting in shakey systems.
+With ever-growing issues plaguing air-quality control in houses and industrial complexes alike, the people inhabiting these buildings shouldn't risk their health by trusting in shaky systems.
 
 This project aims to provide a simple and portable solution to help users idenitfy high-risk environment, in terms of the air quality. This product  offers range of sensors that can identify various characteristics of the air around you, such as:
 - CO2
